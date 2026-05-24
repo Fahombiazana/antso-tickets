@@ -83,9 +83,10 @@ app.get('/token', (req, res) => {
     context: {
       user: {
         name: userName,
-        // Le patient n'est PAS modérateur (c'est le médecin
-        // qui modère). On met "moderator: false".
-        moderator: false
+        // Consultation à deux (patient + médecin) : les DEUX
+        // doivent avoir le contrôle total de leur micro/caméra.
+        // On met donc "moderator: true" pour chaque participant.
+        moderator: true
       },
       features: {
         livestreaming: false,
